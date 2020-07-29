@@ -15,10 +15,9 @@ jobs:
 
       - name: Build Native Lib
         run: |
-             cd simple_native_lib
              mkdir build
              cd build
-             cmake ../
+             cmake ../simple_native_lib
              cmake --build ./ -- /p:Configuration=Debug /p:Platform=x64
 
       - name: Upload Artifact
