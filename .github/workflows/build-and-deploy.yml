@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   windows-build:
 
-    name: Windows build
+    name: windows-builder
 
     runs-on: windows-latest
 
