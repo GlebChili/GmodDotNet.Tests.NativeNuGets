@@ -16,14 +16,13 @@ jobs:
       - name: Build Native Lib
         run: |
              cd simple_native_lib
-             cmake ./
+             mkdir build
+             cd build
+             cmake ../
              cmake --build ./
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: windows-build
-          path: ./gmodTestLib.dll
-
-
-          
+          path: build/gmodTestLib.dll
