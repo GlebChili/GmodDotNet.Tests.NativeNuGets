@@ -25,3 +25,49 @@ jobs:
         with:
           name: windows-build
           path: build/gmodTestLib.dll
+
+  linux-builder:
+
+    name: linux-builder
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+
+      - name: Build Native Lib
+        run: |
+             mkdir build
+             cd build
+             cmake ../simple_native_lib
+             cmake --build ./
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: linux-build
+          path: build/libgmodTestLib.so
+
+  macos-builder:
+
+    name: macos-builder
+
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+
+      - name: Build native Lib
+        run: |
+             mkdir build
+             cd build
+             cmake ../simple_native_lib
+             cmake --build ./
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: macos-build
+          path: build/libgmodTestLib.dylib
