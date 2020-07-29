@@ -1,0 +1,5 @@
+*/.idea/
+*/winbuild/
+*/linbuild/
+*/cmake-build-debug/
+*/cmake-build-debug-wsl/
