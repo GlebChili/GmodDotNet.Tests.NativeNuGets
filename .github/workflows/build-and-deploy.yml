@@ -19,7 +19,7 @@ jobs:
              mkdir build
              cd build
              cmake ../
-             cmake --build ./
+             cmake --build ./ -- /p:Configuration=Debug /p:Platform=x64
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
