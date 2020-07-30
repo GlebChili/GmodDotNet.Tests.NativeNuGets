@@ -1,6 +1,6 @@
 name: Build and Deploy
 
-on: [push, pull_request]
+on: [push, pull_request, release]
 
 jobs:
   windows-builder:
@@ -116,6 +116,12 @@ jobs:
         with:
           name: nuget
           path: packager/nupkgs
+
+      - name: Push NuGet package to NuGet.org
+        if: github.event_name == 'release' && github.event.action == 'published'
+        run: |
+             cd packager/nupkgs
+             dotnet nuget push --api-key ${{ secretes.NUGET_KEY }}
 
       - name: Struct of folder
         run: |
