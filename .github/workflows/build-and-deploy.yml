@@ -121,7 +121,7 @@ jobs:
         if: github.event_name == 'release' && github.event.action == 'published'
         run: |
              cd packager/nupkgs
-             dotnet nuget push --api-key ${{ secretes.NUGET_KEY }}
+             dotnet nuget push --api-key ${{ secrets.NUGET_KEY }}
 
       - name: Struct of folder
         run: |
