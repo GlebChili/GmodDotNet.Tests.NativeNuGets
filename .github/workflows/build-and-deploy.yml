@@ -1,6 +1,9 @@
 name: Build and Deploy
 
-on: [push, pull_request, release]
+on: [push, pull_request]
+on:
+  release:
+    types: [publish]
 
 jobs:
   windows-builder:
