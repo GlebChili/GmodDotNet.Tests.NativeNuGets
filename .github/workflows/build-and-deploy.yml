@@ -111,6 +111,12 @@ jobs:
              cd packager
              dotnet pack --output nupkgs
 
+      - name: Upload NuGet as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: nuget
+          path: packager/nupkgs
+
       - name: Struct of folder
         run: |
              cd packager
